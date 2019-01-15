@@ -12,7 +12,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(exclude = "book")
 @RequiredArgsConstructor
 @NoArgsConstructor
-public class BookDetail implements Serializable {
+public class BookDetail {
     @Id
     private int id;
 
