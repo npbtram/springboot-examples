@@ -1,10 +1,9 @@
-package com.hellokoding.springboot.jpa;
+package com.hellokoding.springboot.jpa_hibernate_mysql;
 
-import com.hellokoding.springboot.jpa.book.Book;
-import com.hellokoding.springboot.jpa.book.BookDetail;
-import com.hellokoding.springboot.jpa.book.BookRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.hellokoding.springboot.jpa_hibernate_mysql.book.Book;
+import com.hellokoding.springboot.jpa_hibernate_mysql.book.BookDetail;
+import com.hellokoding.springboot.jpa_hibernate_mysql.book.BookRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,9 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
+@Slf4j
 public class JpaApplication implements CommandLineRunner {
-    private static final Logger logger = LoggerFactory.getLogger(JpaApplication.class);
-
     @Autowired
     private BookRepository bookRepository;
 
@@ -41,6 +39,6 @@ public class JpaApplication implements CommandLineRunner {
         bookRepository.saveAll(books);
 
         // fetch all books
-        bookRepository.findAll().forEach(b -> logger.info(b.toString()));
+        bookRepository.findAll().forEach(b -> log.info(b.toString()));
     }
 }

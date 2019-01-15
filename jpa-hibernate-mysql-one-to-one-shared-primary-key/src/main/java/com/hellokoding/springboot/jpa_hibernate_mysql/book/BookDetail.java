@@ -1,4 +1,4 @@
-package com.hellokoding.springboot.jpa.book;
+package com.hellokoding.springboot.jpa_hibernate_mysql.book;
 
 import lombok.*;
 
@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+
 @Data
 @ToString(exclude = "book")
 @EqualsAndHashCode(exclude = "book")

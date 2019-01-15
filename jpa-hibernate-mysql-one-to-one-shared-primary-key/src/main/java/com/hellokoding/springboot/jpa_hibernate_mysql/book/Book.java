@@ -1,10 +1,11 @@
-package com.hellokoding.springboot.jpa.book;
+package com.hellokoding.springboot.jpa_hibernate_mysql.book;
 
 import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
+
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
