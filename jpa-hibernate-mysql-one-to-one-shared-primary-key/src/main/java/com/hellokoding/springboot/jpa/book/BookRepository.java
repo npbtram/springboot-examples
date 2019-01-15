@@ -1,4 +1,4 @@
-package com.hellokoding.springboot.jpa_hibernate_mysql.book;
+package com.hellokoding.springboot.jpa.book;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

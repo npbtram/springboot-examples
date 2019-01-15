@@ -1,8 +1,8 @@
-package com.hellokoding.springboot.jpa_hibernate_mysql;
+package com.hellokoding.springboot.jpa;
 
-import com.hellokoding.springboot.jpa_hibernate_mysql.book.Book;
-import com.hellokoding.springboot.jpa_hibernate_mysql.book.BookDetail;
-import com.hellokoding.springboot.jpa_hibernate_mysql.book.BookRepository;
+import com.hellokoding.springboot.jpa.book.Book;
+import com.hellokoding.springboot.jpa.book.BookDetail;
+import com.hellokoding.springboot.jpa.book.BookRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
