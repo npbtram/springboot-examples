@@ -30,7 +30,6 @@
     </build>
 
     <modules>
-        <module>jpa-hibernate-mysql-one-to-one-shared-primary-key</module>
-        <module>jpa-hibernate-mysql-composite-primary-key</module>
+        <module>jpa-hibernate-mysql</module>
     </modules>
 </project>
