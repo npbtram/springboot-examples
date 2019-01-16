@@ -9,6 +9,8 @@ services:
       MYSQL_ROOT_HOST: '%'
     ports:
     - "3306:3306"
+    volumes:
+    - ./mysql-dump:/docker-entrypoint-initdb.d
     restart: always
 
   one-to-one-shared-primary-key:
@@ -18,6 +20,16 @@ services:
     - ~/.m2:/root/.m2
     working_dir: /springboot-tutorials
     command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/one-to-one-shared-primary-key && mvn clean spring-boot:run"
+    depends_on:
+    - mysql57
+
+  one-to-one-foreign-key:
+    build: ./jpa-hibernate-mysql/one-to-one-foreign-key
+    volumes:
+    - .:/springboot-tutorials
+    - ~/.m2:/root/.m2
+    working_dir: /springboot-tutorials
+    command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/one-to-one-foreign-key && mvn clean spring-boot:run"
     depends_on:
     - mysql57
 

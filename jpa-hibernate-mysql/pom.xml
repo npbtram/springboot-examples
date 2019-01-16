@@ -17,6 +17,7 @@
 
     <modules>
         <module>one-to-one-shared-primary-key</module>
+        <module>one-to-one-foreign-key</module>
         <module>composite-primary-key</module>
     </modules>
 </project>
