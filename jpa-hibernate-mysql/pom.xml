@@ -20,5 +20,6 @@
         <module>one-to-one-shared-primary-key</module>
         <module>one-to-one-foreign-key</module>
         <module>one-to-many</module>
+        <module>many-to-many</module>
     </modules>
 </project>
