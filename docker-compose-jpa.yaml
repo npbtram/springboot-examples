@@ -13,6 +13,16 @@ services:
     - ./mysql-dump:/docker-entrypoint-initdb.d
     restart: always
 
+  composite-primary-key:
+    build: ./jpa-hibernate-mysql/composite-primary-key
+    volumes:
+    - .:/springboot-tutorials
+    - ~/.m2:/root/.m2
+    working_dir: /springboot-tutorials
+    command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/composite-primary-key && mvn clean spring-boot:run"
+    depends_on:
+    - mysql57
+
   one-to-one-shared-primary-key:
     build: ./jpa-hibernate-mysql/one-to-one-shared-primary-key
     volumes:
@@ -33,12 +43,12 @@ services:
     depends_on:
     - mysql57
 
-  composite-primary-key:
-    build: ./jpa-hibernate-mysql/composite-primary-key
+  one-to-many:
+    build: ./jpa-hibernate-mysql/one-to-many
     volumes:
     - .:/springboot-tutorials
     - ~/.m2:/root/.m2
     working_dir: /springboot-tutorials
-    command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/composite-primary-key && mvn clean spring-boot:run"
+    command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/one-to-many && mvn clean spring-boot:run"
     depends_on:
     - mysql57
