@@ -31,5 +31,6 @@
 
     <modules>
         <module>jpa-hibernate-mysql</module>
+        <module>view-templates</module>
     </modules>
 </project>
