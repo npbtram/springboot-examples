@@ -17,5 +17,7 @@
 
     <modules>
         <module>jsp-helloworld</module>
+        <module>freemarker-helloworld</module>
+        <module>thymeleaf-helloworld</module>
     </modules>
 </project>
