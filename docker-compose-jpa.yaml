@@ -60,3 +60,13 @@ services:
     command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/many-to-many && mvn clean spring-boot:run"
     depends_on:
     - mysql57
+
+  many-to-many-extra-columns:
+    build: ./jpa-hibernate-mysql/many-to-many-extra-columns
+    volumes:
+    - .:/springboot-tutorials
+    - ~/.m2:/root/.m2
+    working_dir: /springboot-tutorials
+    command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/many-to-many-extra-columns && mvn clean spring-boot:run"
+    depends_on:
+    - mysql57

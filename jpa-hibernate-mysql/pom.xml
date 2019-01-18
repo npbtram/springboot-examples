@@ -21,5 +21,6 @@
         <module>one-to-one-foreign-key</module>
         <module>one-to-many</module>
         <module>many-to-many</module>
+        <module>many-to-many-extra-columns</module>
     </modules>
 </project>
