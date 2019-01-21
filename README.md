@@ -1,4 +1,4 @@
-# Spring Boot 2 Examples with Spring Data JPA/Hibernate, MySQL, Docker
+# Spring Boot 2 Examples and Tutorials with Docker
 
 ## Tutorials
 

@@ -32,5 +32,6 @@
     <modules>
         <module>jpa-hibernate-mysql</module>
         <module>view-templates</module>
+        <module>restful-api</module>
     </modules>
 </project>
