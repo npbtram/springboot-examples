@@ -22,3 +22,15 @@ services:
     command: bash -c "mvn -N clean install && cd restful-api/springdatarest-mysql-single && mvn clean spring-boot:run"
     depends_on:
     - mysql57
+
+  circular-reference-jackson:
+    build: ./restful-api/circular-reference-jackson
+    volumes:
+    - .:/springboot-tutorials
+    - ~/.m2:/root/.m2
+    working_dir: /springboot-tutorials
+    ports:
+    - 8080:8080
+    command: bash -c "mvn -N clean install && cd restful-api/circular-reference-jackson && mvn clean spring-boot:run"
+    depends_on:
+    - mysql57
