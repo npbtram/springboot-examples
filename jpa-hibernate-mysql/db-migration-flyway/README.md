@@ -1,4 +1,4 @@
-# JPA/Hibernate Composite Primary Key Entity Mapping Example with Spring Boot, Spring Data JPA, Lombok, MySQL and Docker
+# Database Migration/Evolution with Flyway, JPA/Hibernate, Spring Boot, MySQL and Docker
 
 ## Tutorial
 

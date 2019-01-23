@@ -1,7 +1,7 @@
 version: '3'
 services:
   mysql57:
-    container_name: mysql57
+    container_name: hk-mysql
     image: mysql/mysql-server:5.7
     environment:
       MYSQL_DATABASE: test
@@ -19,7 +19,7 @@ services:
     working_dir: /springboot-tutorials
     command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/composite-primary-key && mvn clean spring-boot:run"
     depends_on:
-    - mysql57
+    - hk-mysql
 
   one-to-one-shared-primary-key:
     build: ./jpa-hibernate-mysql/one-to-one-shared-primary-key
@@ -29,7 +29,7 @@ services:
     working_dir: /springboot-tutorials
     command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/one-to-one-shared-primary-key && mvn clean spring-boot:run"
     depends_on:
-    - mysql57
+    - hk-mysql
 
   one-to-one-foreign-key:
     build: ./jpa-hibernate-mysql/one-to-one-foreign-key
@@ -39,7 +39,7 @@ services:
     working_dir: /springboot-tutorials
     command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/one-to-one-foreign-key && mvn clean spring-boot:run"
     depends_on:
-    - mysql57
+    - hk-mysql
 
   one-to-many:
     build: ./jpa-hibernate-mysql/one-to-many
@@ -49,7 +49,7 @@ services:
     working_dir: /springboot-tutorials
     command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/one-to-many && mvn clean spring-boot:run"
     depends_on:
-    - mysql57
+    - hk-mysql
 
   many-to-many:
     build: ./jpa-hibernate-mysql/many-to-many
@@ -59,7 +59,7 @@ services:
     working_dir: /springboot-tutorials
     command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/many-to-many && mvn clean spring-boot:run"
     depends_on:
-    - mysql57
+    - hk-mysql
 
   many-to-many-extra-columns:
     build: ./jpa-hibernate-mysql/many-to-many-extra-columns
@@ -69,7 +69,7 @@ services:
     working_dir: /springboot-tutorials
     command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/many-to-many-extra-columns && mvn clean spring-boot:run"
     depends_on:
-    - mysql57
+    - hk-mysql
 
   db-migration-flyway:
     build: ./jpa-hibernate-mysql/db-migration-flyway
@@ -79,4 +79,4 @@ services:
     working_dir: /springboot-tutorials
     command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/db-migration-flyway && mvn clean spring-boot:run"
     depends_on:
-    - mysql57
+    - hk-mysql

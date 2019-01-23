@@ -1,7 +1,7 @@
 version: '3'
 services:
   mysql57:
-    container_name: mysql57
+    container_name: hk-mysql
     image: mysql/mysql-server:5.7
     environment:
       MYSQL_DATABASE: test
@@ -21,7 +21,7 @@ services:
     - 8080:8080
     command: bash -c "mvn -N clean install && cd restful-api/springdatarest-mysql-single && mvn clean spring-boot:run"
     depends_on:
-    - mysql57
+    - hk-mysql
 
   circular-reference-jackson:
     build: ./restful-api/circular-reference-jackson
@@ -33,4 +33,4 @@ services:
     - 8080:8080
     command: bash -c "mvn -N clean install && cd restful-api/circular-reference-jackson && mvn clean spring-boot:run"
     depends_on:
-    - mysql57
+    - hk-mysql
