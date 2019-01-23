@@ -12,13 +12,13 @@ services:
     restart: always
 
   todomvc-mysql-vuejs:
-    build: ./fullstack/todomvc-mysql-vuejs
+    build: ./full-stack/todomvc-mysql-vuejs
     volumes:
     - .:/springboot-tutorials
     - ~/.m2:/root/.m2
     working_dir: /springboot-tutorials
     ports:
     - 8080:8080
-    command: bash -c "mvn -N clean install && cd fullstack/todomvc-mysql-vuejs && mvn clean spring-boot:run"
+    command: bash -c "mvn -N clean install && cd full-stack/todomvc-mysql-vuejs && mvn clean spring-boot:run"
     depends_on:
     - hk-mysql
