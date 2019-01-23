@@ -17,5 +17,6 @@
 
     <modules>
         <module>todomvc-mysql-vuejs</module>
+        <module>crud-mysql-vuejs</module>
     </modules>
 </project>

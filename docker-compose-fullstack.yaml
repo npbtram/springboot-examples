@@ -1,6 +1,6 @@
 version: '3'
 services:
-  mysql57:
+  hk-mysql:
     container_name: hk-mysql
     image: mysql/mysql-server:5.7
     environment:
@@ -20,5 +20,17 @@ services:
     ports:
     - 8080:8080
     command: bash -c "mvn -N clean install && cd full-stack/todomvc-mysql-vuejs && mvn clean spring-boot:run"
+    depends_on:
+    - hk-mysql
+
+  crud-mysql-vuejs:
+    build: ./full-stack/crud-mysql-vuejs
+    volumes:
+    - .:/springboot-tutorials
+    - ~/.m2:/root/.m2
+    working_dir: /springboot-tutorials
+    ports:
+    - 8080:8080
+    command: bash -c "mvn -N clean install && cd full-stack/crud-mysql-vuejs && mvn clean spring-boot:run"
     depends_on:
     - hk-mysql
