@@ -33,3 +33,4 @@ services:
     - 8080:8080
     command: bash -c "mvn -N clean install && cd restful-api/circular-reference-jackson && mvn clean spring-boot:run"
     depends_on:
+    - mysql57

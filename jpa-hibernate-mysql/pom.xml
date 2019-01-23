@@ -22,5 +22,6 @@
         <module>one-to-many</module>
         <module>many-to-many</module>
         <module>many-to-many-extra-columns</module>
+        <module>db-migration-flyway</module>
     </modules>
 </project>

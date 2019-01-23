@@ -70,3 +70,13 @@ services:
     command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/many-to-many-extra-columns && mvn clean spring-boot:run"
     depends_on:
     - mysql57
+
+  db-migration-flyway:
+    build: ./jpa-hibernate-mysql/db-migration-flyway
+    volumes:
+    - .:/springboot-tutorials
+    - ~/.m2:/root/.m2
+    working_dir: /springboot-tutorials
+    command: bash -c "mvn -N clean install && cd jpa-hibernate-mysql/db-migration-flyway && mvn clean spring-boot:run"
+    depends_on:
+    - mysql57
