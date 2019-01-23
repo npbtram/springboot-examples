@@ -3,6 +3,4 @@ CREATE TABLE `book` (
   `description` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE SEQUENCE hibernate_sequence;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
