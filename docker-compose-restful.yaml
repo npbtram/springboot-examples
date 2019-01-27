@@ -34,3 +34,25 @@ services:
     command: bash -c "mvn -N clean install && cd restful-api/circular-reference-jackson && mvn clean spring-boot:run"
     depends_on:
     - hk-mysql
+
+  springboot-mysql-swagger:
+    build: ./restful-api/circular-reference-jackson
+    volumes:
+    - .:/springboot-tutorials
+    - ~/.m2:/root/.m2
+    working_dir: /springboot-tutorials
+    ports:
+    - 8080:8080
+    command: bash -c "mvn -N clean install && cd restful-api/circular-reference-jackson && mvn clean spring-boot:run"
+    depends_on:
+    - hk-mysql
+
+  springboot-mockmvc-hsql:
+    build: ./restful-api/springboot-mockmvc-hsql
+    volumes:
+    - .:/springboot-tutorials
+    - ~/.m2:/root/.m2
+    working_dir: /springboot-tutorials
+    ports:
+    - 8080:8080
+    command: bash -c "mvn -N clean install && cd restful-api/springboot-mockmvc-hsql && mvn clean spring-boot:run"
