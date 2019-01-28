@@ -5,19 +5,16 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity
-
 @Data
-@ToString(exclude = "books")
-@EqualsAndHashCode(exclude = "books")
-@NoArgsConstructor
-@RequiredArgsConstructor
+
+
+@Entity
 public class Publisher {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private @NonNull String name;
+    private String name;
 
     @ManyToMany(mappedBy = "publishers")
     private Set<Book> books;
