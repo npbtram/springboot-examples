@@ -1,5 +1,5 @@
-# Database Migration/Evolution with Flyway, JPA/Hibernate, Spring Boot, MySQL and Docker
+# Database Migration/Evolution Example with Flyway and JPA/Hibernate
 
 ## Tutorial
 
-https://hellokoding.com/jpa-hibernate-composite-primary-key-entity-mapping-example-with-mysql/
+https://hellokoding.com/database-migration-evolution-with-flyway-and-jpa-hibernate/
