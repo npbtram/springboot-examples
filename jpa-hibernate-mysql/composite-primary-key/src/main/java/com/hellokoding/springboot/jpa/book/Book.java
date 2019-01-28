@@ -6,13 +6,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+@Data
+
 @Entity
 @IdClass(Book.IdClass.class)
-
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Book {
     @Id
     private String name;
@@ -20,7 +17,6 @@ public class Book {
     @Id
     private Date publishedDate;
 
-    @Builder.Default
     private Date updatedDate = new Date();
 
     @Data
