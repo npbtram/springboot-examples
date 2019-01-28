@@ -4,21 +4,17 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
-
 @Data
-@ToString(exclude = "bookCategory")
-@EqualsAndHashCode(exclude = "bookCategory")
-@RequiredArgsConstructor
-@NoArgsConstructor
+
+@Entity
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private @NonNull String name;
+    private String name;
 
     @ManyToOne
-    @JoinColumn(name = "book_category_id")
-    private @NonNull BookCategory bookCategory;
+    @JoinColumn
+    private BookCategory bookCategory;
 }

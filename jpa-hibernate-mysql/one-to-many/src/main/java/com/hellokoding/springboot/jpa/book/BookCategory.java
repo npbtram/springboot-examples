@@ -1,25 +1,21 @@
 package com.hellokoding.springboot.jpa.book;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity
-@Table(name = "book_category")
-
 @Data
-@NoArgsConstructor
-@RequiredArgsConstructor
+@EqualsAndHashCode(exclude = "books")
+
+@Entity
 public class BookCategory {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private @NonNull String name;
+    private String name;
 
     @OneToMany(mappedBy = "bookCategory", cascade = CascadeType.ALL)
     private Set<Book> books;

@@ -3,48 +3,35 @@ package com.hellokoding.springboot.jpa;
 import com.hellokoding.springboot.jpa.book.Book;
 import com.hellokoding.springboot.jpa.book.BookCategory;
 import com.hellokoding.springboot.jpa.book.BookCategoryRepository;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
-import javax.transaction.Transactional;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @SpringBootApplication
-@Slf4j
-public class JpaApplication implements CommandLineRunner {
-    @Autowired
-    private BookCategoryRepository bookCategoryRepository;
-
+public class JpaApplication {
     public static void main(String[] args) {
         SpringApplication.run(JpaApplication.class, args);
     }
 
-    @Override
-    @Transactional
-    public void run(String... strings) throws Exception {
-        // save a couple of categories
-        Set<BookCategory> bookCategories = new HashSet<>();
+    @Bean
+    public CommandLineRunner runner(BookCategoryRepository bookCategoryRepository) {
+        return r -> {
+            Book book1 = new Book();
+            book1.setName("Hello Koding 1");
+            Book book2 = new Book();
+            book2.setName("Hello Koding 2");
 
-        for (int i = 0; i < 2; i++) {
-            BookCategory bookCategory = new BookCategory("Category " + i);
-            Set<Book> books = new HashSet<>();
-            for (int j = 0; j < 10; j++) {
-                books.add(new Book(String.format("Book %d %d", i, j), bookCategory));
-            }
-            bookCategory.setBooks(books);
+            BookCategory bookCategory1 = new BookCategory();
+            bookCategory1.setName("Category 1");
+            bookCategory1.setBooks(Stream.of(book1, book2).collect(Collectors.toSet()));
+            book1.setBookCategory(bookCategory1);
+            book2.setBookCategory(bookCategory1);
 
-            bookCategories.add(bookCategory);
-        }
-
-        bookCategoryRepository.saveAll(bookCategories);
-
-        // fetch all categories
-        for (BookCategory bookCategory : bookCategoryRepository.findAll()) {
-            log.info(bookCategory.toString());
-        }
+            bookCategoryRepository.save(bookCategory1);
+        };
     }
 }
