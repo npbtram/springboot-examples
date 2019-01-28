@@ -2,33 +2,34 @@ package com.hellokoding.springboot.jpa.book;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity
-
 @Getter
 @Setter
 @NoArgsConstructor
-@RequiredArgsConstructor
+
+@Entity
 public class BookPublisher implements Serializable {
     @Id
     @ManyToOne
-    @JoinColumn(name = "book_id")
-    private @NonNull Book book;
+    @JoinColumn
+    private Book book;
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "publisher_id")
-    private @NonNull Publisher publisher;
+    @JoinColumn
+    private Publisher publisher;
 
+    private Date publishedDate;
 
-    private @NonNull Date publishedDate;
+    public BookPublisher(Book book, Publisher publisher, Date publishedDate) {
+        this.book = book;
+        this.publisher = publisher;
+        this.publishedDate = publishedDate;
+    }
 
     @Override
     public boolean equals(Object o) {

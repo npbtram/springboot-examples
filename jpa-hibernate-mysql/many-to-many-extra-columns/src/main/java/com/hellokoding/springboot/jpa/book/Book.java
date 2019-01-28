@@ -6,20 +6,20 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-
 @Data
-@ToString(exclude = "bookPublishers")
-@EqualsAndHashCode(exclude = "bookPublishers")
-@RequiredArgsConstructor
-@NoArgsConstructor
+
+@Entity
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private @NonNull String name;
+    private String name;
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private Set<BookPublisher> bookPublishers = new HashSet<>();
+
+    public Book(String name) {
+        this.name = name;
+    }
 }
