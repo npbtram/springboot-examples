@@ -7,7 +7,6 @@ import java.util.Set;
 
 @Data
 
-
 @Entity
 public class Publisher {
     @Id
