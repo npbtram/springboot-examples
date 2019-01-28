@@ -1,24 +1,20 @@
 package com.hellokoding.springboot.jpa.book;
 
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.*;
 
-@Entity
-
 @Data
-@ToString(exclude = "book")
-@EqualsAndHashCode(exclude = "book")
-@RequiredArgsConstructor
-@NoArgsConstructor
+
+@Entity
 public class BookDetail {
     @Id
-    private int id;
+    private Integer id;
 
     @OneToOne
-    @JoinColumn(name = "book_id")
+    @JoinColumn
     @MapsId
-    private @NonNull Book book;
+    private Book book;
 
     private int numberOfPages;
 }

@@ -3,42 +3,39 @@ package com.hellokoding.springboot.jpa;
 import com.hellokoding.springboot.jpa.book.Book;
 import com.hellokoding.springboot.jpa.book.BookDetail;
 import com.hellokoding.springboot.jpa.book.BookRepository;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 @SpringBootApplication
-@Slf4j
-public class JpaApplication implements CommandLineRunner {
-    @Autowired
-    private BookRepository bookRepository;
-
+public class JpaApplication {
     public static void main(String[] args) {
         SpringApplication.run(JpaApplication.class, args);
     }
 
-    @Override
-    public void run(String... strings) throws Exception {
-        // save a couple of books and book details
-        List<Book> books = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            Book book = new Book("Book " + (i+1));
+    @Bean
+    public CommandLineRunner runner(BookRepository bookRepository) {
+        return r -> {
+            Book book1 = new Book();
+            book1.setName("Hello Koding 1");
 
-            BookDetail bookDetail = new BookDetail(book);
-            bookDetail.setNumberOfPages(100 + i);
-            book.setBookDetail(bookDetail);
+            BookDetail bookDetail1 = new BookDetail();
+            bookDetail1.setNumberOfPages(100);
+            bookDetail1.setBook(book1);
+            book1.setBookDetail(bookDetail1);
 
-            books.add(book);
-        }
+            Book book2 = new Book();
+            book2.setName("Hello Koding 2");
 
-        bookRepository.saveAll(books);
+            BookDetail bookDetail2 = new BookDetail();
+            bookDetail2.setNumberOfPages(100);
+            bookDetail2.setBook(book2);
+            book2.setBookDetail(bookDetail2);
 
-        // fetch all books
-        bookRepository.findAll().forEach(b -> log.info(b.toString()));
+            bookRepository.saveAll(Arrays.asList(book1, book2));
+        };
     }
 }

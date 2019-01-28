@@ -4,18 +4,16 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
-
 @Data
-@RequiredArgsConstructor
-@NoArgsConstructor
+
+@Entity
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private @NonNull String name;
+    private String name;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "book")
+    @OneToOne(mappedBy = "book", cascade = CascadeType.ALL)
     private BookDetail bookDetail;
 }
