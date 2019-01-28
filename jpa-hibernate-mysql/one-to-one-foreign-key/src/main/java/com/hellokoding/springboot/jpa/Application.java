@@ -28,12 +28,10 @@ public class Application {
             Address address1 = new Address();
             address1.setStreet("Street 1");
             address1.setZipCode("1");
-            address1.setLibrary(library1);
 
             Address address2 = new Address();
             address2.setStreet("Street 2");
             address2.setZipCode("2");
-            address2.setLibrary(library1);
 
             library1.setAddress(address1);
             library2.setAddress(address2);
