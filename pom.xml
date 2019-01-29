@@ -34,5 +34,6 @@
         <module>view-templates</module>
         <module>restful-api</module>
         <module>full-stack</module>
+        <module>properties-file</module>
     </modules>
 </project>

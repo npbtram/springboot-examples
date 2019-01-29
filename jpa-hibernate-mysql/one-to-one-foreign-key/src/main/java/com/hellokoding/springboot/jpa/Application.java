@@ -3,40 +3,35 @@ package com.hellokoding.springboot.jpa;
 import com.hellokoding.springboot.jpa.book.Address;
 import com.hellokoding.springboot.jpa.book.Library;
 import com.hellokoding.springboot.jpa.book.LibraryRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
-import java.util.Arrays;
-
+@RequiredArgsConstructor
 @SpringBootApplication
-public class Application {
+public class Application implements CommandLineRunner {
+    private final LibraryRepository libraryRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
-    public CommandLineRunner runner(LibraryRepository libraryRepository) {
-        return r -> {
-            Library library1 = new Library();
-            library1.setName("Hello Koding 1");
+    @Override
+    public void run(String... args) throws Exception {
+        createLibraryAndAddress("Library 1", "Street 1", "1");
+        createLibraryAndAddress("Library 2", "Street 2", "2");
+    }
 
-            Library library2 = new Library();
-            library2.setName("Hello Koding 2");
+    private void createLibraryAndAddress(String libraryName, String street, String zipCode) {
+        Library library = new Library();
+        library.setName(libraryName);
 
-            Address address1 = new Address();
-            address1.setStreet("Street 1");
-            address1.setZipCode("1");
+        Address address = new Address();
+        address.setStreet(street);
+        address.setZipCode(zipCode);
+        library.setAddress(address);
 
-            Address address2 = new Address();
-            address2.setStreet("Street 2");
-            address2.setZipCode("2");
-
-            library1.setAddress(address1);
-            library2.setAddress(address2);
-
-            libraryRepository.saveAll(Arrays.asList(library1, library2));
-        };
+        libraryRepository.save(library);
     }
 }
