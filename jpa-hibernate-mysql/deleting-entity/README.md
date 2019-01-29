@@ -1,5 +1,5 @@
-# Handling Circular Reference of JPA/Hibernate Bidirectional Entity Relationships with Jackson `JsonIgnoreProperties`
+# Deleting Data with JPA/Hibernate
 
 ## Tutorial
 
-https://hellokoding.com/handling-circular-reference-of-jpa-hibernate-bidirectional-entity-relationships-with-jackson-jsonignoreproperties/
+https://hellokoding.com/deleting-data-with-jpa-hibernate/
