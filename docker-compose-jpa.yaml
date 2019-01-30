@@ -81,12 +81,10 @@ services:
     depends_on:
     - hk-mysql
 
-  deleting-entity:
-    build: ./jpa-hibernate/deleting-entity
+  crud-deleting-entity:
+    build: ./jpa-hibernate/crud-deleting-entity
     volumes:
     - .:/springboot-tutorials
     - ~/.m2:/root/.m2
     working_dir: /springboot-tutorials
-    command: bash -c "mvn -N clean install && cd jpa-hibernate/deleting-entity && mvn clean spring-boot:run"
-    depends_on:
-    - hk-mysql
+    command: bash -c "mvn -N clean install && cd jpa-hibernate/crud-deleting-entity && mvn clean spring-boot:run"

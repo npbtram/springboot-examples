@@ -23,6 +23,7 @@
         <module>many-to-many</module>
         <module>many-to-many-extra-columns</module>
         <module>db-migration-flyway</module>
-        <module>deleting-entity</module>
+        <module>crud-deleting-entity</module>
+        <module>crud-querying-entity</module>
     </modules>
 </project>
