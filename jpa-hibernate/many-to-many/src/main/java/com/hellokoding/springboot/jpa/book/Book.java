@@ -16,6 +16,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "name")
     private String name;
 
     @ManyToMany(cascade = CascadeType.ALL)

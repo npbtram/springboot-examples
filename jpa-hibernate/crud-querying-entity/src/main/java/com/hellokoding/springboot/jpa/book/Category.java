@@ -1,12 +1,14 @@
 package com.hellokoding.springboot.jpa.book;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Data
 @NoArgsConstructor
@@ -20,12 +22,13 @@ public class Category {
 
     private String name;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Book> books;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OrderBy("name DESC")
+    private Set<Book> books = new LinkedHashSet<>();
 
     public Category(String name, Book... books) {
         this.name = name;
-        this.books = Stream.of(books).collect(Collectors.toSet());
+        this.books = new LinkedHashSet<>(Arrays.asList(books));
         this.books.forEach(x -> x.setCategory(this));
     }
 

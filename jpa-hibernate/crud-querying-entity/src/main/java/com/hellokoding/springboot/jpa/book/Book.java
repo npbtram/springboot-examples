@@ -11,7 +11,7 @@ import java.util.Objects;
 @ToString(exclude = "category")
 
 @Entity
-public class Book{
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

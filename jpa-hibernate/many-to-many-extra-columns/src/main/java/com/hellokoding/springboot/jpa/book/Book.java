@@ -15,6 +15,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "name")
     private String name;
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
