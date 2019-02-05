@@ -17,7 +17,7 @@ public class JpaApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        categoryService.create();
-        categoryService.findByEntityManager();
+        categoryService.createCategory();
+        categoryService.testSortingAssociatedCollectionWithOrderBy();
     }
 }

@@ -88,3 +88,13 @@ services:
     - ~/.m2:/root/.m2
     working_dir: /springboot-tutorials
     command: bash -c "mvn -N clean install && cd jpa-hibernate/crud-deleting-entity && mvn clean spring-boot:run"
+
+  crud-querying-entity:
+    build: ./jpa-hibernate/crud-querying-entity
+    volumes:
+    - .:/springboot-tutorials
+    - ~/.m2:/root/.m2
+    working_dir: /springboot-tutorials
+    command: bash -c "mvn -N clean install && cd jpa-hibernate/crud-querying-entity && mvn clean spring-boot:run"
+    depends_on:
+    - hk-mysql
