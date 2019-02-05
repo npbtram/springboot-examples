@@ -1,5 +1,5 @@
-# Spring Boot 2 Examples and Tutorials with Docker
+# Spring Boot 2 Examples and Tutorials Series
 
 ## Tutorials
 
-https://hellokoding.com/tag/spring-boot/
+https://hellokoding.com/spring-boot-tutorial-series/
